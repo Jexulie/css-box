@@ -2,7 +2,9 @@ import React from 'react';
 
 export default props => {
     //TODO: add blur
+    // css secrets
     let sandbox = {
+        // filter: `blur${style.filter}`,
         width: props.style.size.width,
         height: props.style.size.height,
         backgroundColor: `rgba(
