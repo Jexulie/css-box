@@ -1,33 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default props => {
-    //TODO: add blur
-    // css secrets
-    let sandbox = {
-        // filter: `blur${style.filter}`,
-        width: props.style.size.width,
-        height: props.style.size.height,
-        backgroundColor: `rgba(
-            ${props.style.backgroundColor.R},
-            ${props.style.backgroundColor.G},
-            ${props.style.backgroundColor.B},
-            ${props.style.backgroundColor.A}
-        )`,
-        boxShadow: `
-            ${props.style.boxshadowProps.offsetX}px 
-            ${props.style.boxshadowProps.offsetY}px 
-            ${props.style.boxshadowProps.blur}px 
-        rgba(
-            ${props.style.boxshadowProps.boxshadowColor.R},
-            ${props.style.boxshadowProps.boxshadowColor.G},
-            ${props.style.boxshadowProps.boxshadowColor.B},
-            ${props.style.boxshadowProps.boxshadowColor.A}
-        )`        
-    }
+import Top_Bar from './Main/Top-Bar';
+import Scene from './Main/Scene';
+import Bottom_Bar from './Main/Bottom-Bar';
 
+const Main = props => {
     return (
         <div className="Main">
-            <div style={sandbox}></div>
+            <Scene style={props.state}/>
         </div>
     )
 }
+
+const mapStateToProps = state => ({
+    state
+});
+  
+export default connect(mapStateToProps)(Main);

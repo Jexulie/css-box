@@ -1,8 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { changeBackgroundColor } from '../../actions';
 
-const Color = props => {
+export default props => {
     //TODO: add gradient | fix ugly range inputsS
     let red;
     let green;
@@ -10,7 +8,7 @@ const Color = props => {
     let alpha;
 
     let handleChange = e => {
-        props.dispatch(changeBackgroundColor({R: red.value, G: green.value, B:blue.value , A: alpha.value}))
+        props.colorChange({R: red.value, G: green.value, B:blue.value , A: alpha.value})
     }
 
     return (
@@ -23,7 +21,7 @@ const Color = props => {
                     type="range" 
                     min="0" 
                     max="255" 
-                    value={props.state.backgroundColor.R}
+                    value={props.style.backgroundColor.R}
                     ref={i => red = i}
                     onChange={handleChange}
                 />
@@ -36,7 +34,7 @@ const Color = props => {
                     type="range" 
                     min="0" 
                     max="255" 
-                    value={props.state.backgroundColor.G}
+                    value={props.style.backgroundColor.G}
                     ref={i => green = i}
                     onChange={handleChange}
                 />
@@ -49,7 +47,7 @@ const Color = props => {
                     type="range" 
                     min="0" 
                     max="255" 
-                    value={props.state.backgroundColor.B}
+                    value={props.style.backgroundColor.B}
                     ref={i => blue = i}
                     onChange={handleChange}
                 />
@@ -63,7 +61,7 @@ const Color = props => {
                     min="0" 
                     max="1"
                     step="0.01"
-                    value={props.state.backgroundColor.A}
+                    value={props.style.backgroundColor.A}
                     ref={i => alpha = i}
                     onChange={handleChange}
                 />
@@ -71,10 +69,3 @@ const Color = props => {
         </div>
     )
 }
-
-
-const mapStateToProps = state => ({
-    state
-})
-
-export default connect(mapStateToProps)(Color);

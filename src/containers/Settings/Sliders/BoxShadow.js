@@ -1,8 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { changeBoxshadow } from '../../actions';
 
-const BoxShadow = props => {
+export default props => {
     // TODO: add inset boolean
     let offsetX;
     let offsetY;
@@ -15,7 +13,7 @@ const BoxShadow = props => {
     }
 
     let handleChange = e => {
-        props.dispatch(changeBoxshadow({
+        props.boxshadowChange({
             offsetX: offsetX.value,
             offsetY: offsetY.value,
             blur: blur.value,
@@ -25,7 +23,7 @@ const BoxShadow = props => {
                 B: boxshadowColor.B.value,
                 A:boxshadowColor.A.value
             }
-        }))
+        })
     }
 
     return (
@@ -38,7 +36,7 @@ const BoxShadow = props => {
                     type="range" 
                     min="-100" 
                     max="100" 
-                    value={props.state.boxshadowProps.offsetX}
+                    value={props.style.boxshadowProps.offsetX}
                     ref={i => offsetX = i}
                     onChange={handleChange}
                 />
@@ -51,7 +49,7 @@ const BoxShadow = props => {
                     type="range" 
                     min="-100" 
                     max="100" 
-                    value={props.state.boxshadowProps.offsetY}
+                    value={props.style.boxshadowProps.offsetY}
                     ref={i => offsetY = i}
                     onChange={handleChange}
                 />
@@ -64,7 +62,7 @@ const BoxShadow = props => {
                     type="range" 
                     min="0" 
                     max="100" 
-                    value={props.state.boxshadowProps.blur}
+                    value={props.style.boxshadowProps.blur}
                     ref={i => blur = i}
                     onChange={handleChange}
                 />
@@ -77,7 +75,7 @@ const BoxShadow = props => {
                     type="range" 
                     min="0" 
                     max="255" 
-                    value={props.state.boxshadowProps.boxshadowColor.R}
+                    value={props.style.boxshadowProps.boxshadowColor.R}
                     ref={i => boxshadowColor.R = i}
                     onChange={handleChange}
                 />
@@ -90,7 +88,7 @@ const BoxShadow = props => {
                     type="range" 
                     min="0" 
                     max="255" 
-                    value={props.state.boxshadowProps.boxshadowColor.G}
+                    value={props.style.boxshadowProps.boxshadowColor.G}
                     ref={i => boxshadowColor.G = i}
                     onChange={handleChange}
                 />
@@ -103,7 +101,7 @@ const BoxShadow = props => {
                     type="range" 
                     min="0" 
                     max="255" 
-                    value={props.state.boxshadowProps.boxshadowColor.B}
+                    value={props.style.boxshadowProps.boxshadowColor.B}
                     ref={i => boxshadowColor.B = i}
                     onChange={handleChange}
                 />
@@ -117,7 +115,7 @@ const BoxShadow = props => {
                     min="0" 
                     max="1"
                     step="0.01"
-                    value={props.state.boxshadowProps.boxshadowColor.A}
+                    value={props.style.boxshadowProps.boxshadowColor.A}
                     ref={i => boxshadowColor.A = i}
                     onChange={handleChange}
                 />
@@ -125,10 +123,3 @@ const BoxShadow = props => {
         </div>
     )
 }
-
-
-const mapStateToProps = state => ({
-    state
-})
-
-export default connect(mapStateToProps)(BoxShadow);

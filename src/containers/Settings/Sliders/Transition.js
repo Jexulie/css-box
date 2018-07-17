@@ -1,21 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { changeBackgroundColor } from '../../actions';
 
-const Color = props => {
+export default props => {
     //TODO: add gradient | fix ugly range inputsS
-    let red;
-    let green;
-    let blue;
-    let alpha;
+    // let red;
+    // let green;
+    // let blue;
+    // let alpha;
 
-    let handleChange = e => {
-        props.dispatch(changeBackgroundColor({R: red.value, G: green.value, B:blue.value , A: alpha.value}))
-    }
+    // let handleChange = e => {
+    //     props.dispatch(changeBackgroundColor({R: red.value, G: green.value, B:blue.value , A: alpha.value}))
+    // }
 
     return (
-        <div className="color">
-            <div className="Red">
+        <div className="transition">
+            {/* <div className="Red">
                 <label>RED</label>
                 <input
                     className="slider"
@@ -67,14 +65,7 @@ const Color = props => {
                     ref={i => alpha = i}
                     onChange={handleChange}
                 />
-            </div>
+            </div> */}
         </div>
     )
 }
-
-
-const mapStateToProps = state => ({
-    state
-})
-
-export default connect(mapStateToProps)(Color);
