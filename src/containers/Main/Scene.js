@@ -4,8 +4,8 @@ export default props => {
     //TODO: add blur
     let sandbox = {
         // filter: `blur${style.filter}`,
-        width: props.style.size.width,
-        height: props.style.size.height,
+        width: `${props.style.size.width}px`,
+        height: `${props.style.size.height}px`,
         backgroundColor: `rgba(
             ${props.style.backgroundColor.R},
             ${props.style.backgroundColor.G},

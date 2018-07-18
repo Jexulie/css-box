@@ -1,17 +1,17 @@
 import React from 'react';
 
 export default props => {
-    // let red;
-    // let green;
-    // let blue;
-    // let alpha;
+    
 
     // let handleChange = e => {
     //     props.dispatch(changeBackgroundColor({R: red.value, G: green.value, B:blue.value , A: alpha.value}))
     // }
+    
+    // translate x / y
+    // scale
 
     return (
-        <div className="border">
+        <div className="filter">
             {/* <div className="Red">
                 <label>RED</label>
                 <input

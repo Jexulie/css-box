@@ -53,6 +53,15 @@ export default (state=initialState, action) => {
                     }
                 }
             }
+        case 'CHANGE_SIZE':
+            return {
+                ...state,
+                size: {
+                    ...state.size,
+                    width: action.values.width,
+                    height: action.values.height
+                }
+            }
         default:
             return state
     }

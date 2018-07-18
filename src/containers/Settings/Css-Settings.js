@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeBackgroundColor, changeBoxshadow } from '../../actions';
+import { changeBackgroundColor, changeBoxshadow, changeSize } from '../../actions';
 
-import Border from './Sliders/Border';
+import Animation from './Sliders/Animation';
 import BoxShadow from './Sliders/BoxShadow';
 import Color from './Sliders/Color';
 import Size from './Sliders/Size';
 import Transform from './Sliders/Transform';
 import Transition from './Sliders/Transition';
+import Filter from './Sliders/Filter';
 
 const Css_Settings = props => {
 
@@ -19,12 +20,15 @@ const Css_Settings = props => {
         props.dispatch(changeBoxshadow(values))
     }
 
-
+    let handleSizeChange = values => {
+        props.dispatch(changeSize(values))
+    }
 
     return (
         <div className="Css-Settings">
             <Color colorChange={handleColorChange} style={props.state}/>
             <BoxShadow boxshadowChange={handleBoxShadowChange} style={props.state}/>
+            <Size sizeChange={handleSizeChange} style={props.state}/>
         </div>
     )
 }

@@ -2,70 +2,41 @@ import React from 'react';
 
 export default props => {
 
-    // let red;
-    // let green;
-    // let blue;
-    // let alpha;
+    let width;
+    let height;
 
-    // let handleChange = e => {
-    //     props.dispatch(changeBackgroundColor({R: red.value, G: green.value, B:blue.value , A: alpha.value}))
-    // }
+    let handleChange = e => {
+        props.sizeChange({width: width.value, height: height.value})
+    }
 
     return (
         <div className="size">
-            {/* <div className="Red">
-                <label>RED</label>
+            <div className="Width">
+                <label>Width</label>
                 <input
                     className="slider"
-                    id="Red"
+                    id="Width"
                     type="range" 
                     min="0" 
-                    max="255" 
-                    value={props.state.backgroundColor.R}
-                    ref={i => red = i}
+                    max="500" 
+                    value={props.style.size.width}
+                    ref={i => width = i}
                     onChange={handleChange}
                 />
             </div>
-            <div className="Green">
-                <label>GREEN</label>
+            <div className="height">
+                <label>height</label>
                 <input
                     className="slider"
-                    id="Green"
+                    id="height"
                     type="range" 
                     min="0" 
-                    max="255" 
-                    value={props.state.backgroundColor.G}
-                    ref={i => green = i}
+                    max="500" 
+                    value={props.style.size.height}
+                    ref={i => height = i}
                     onChange={handleChange}
                 />
             </div>
-            <div className="Blue">
-                <label>BLUE</label>
-                <input
-                    className="slider"
-                    id="Blue"
-                    type="range" 
-                    min="0" 
-                    max="255" 
-                    value={props.state.backgroundColor.B}
-                    ref={i => blue = i}
-                    onChange={handleChange}
-                />
-            </div>
-            <div className="Alpha">
-                <label>ALPHA</label>
-                <input
-                    className="slider"
-                    id="Alpha"
-                    type="range" 
-                    min="0" 
-                    max="1"
-                    step="0.01"
-                    value={props.state.backgroundColor.A}
-                    ref={i => alpha = i}
-                    onChange={handleChange}
-                />
-            </div> */}
         </div>
     )
 }
