@@ -24,11 +24,15 @@ const Css_Settings = props => {
         props.dispatch(changeSize(values))
     }
 
+    let color = (<Color colorChange={handleColorChange} style={props.state}/>);
+    let boxShadow = (<BoxShadow boxshadowChange={handleBoxShadowChange} style={props.state}/>);
+    let size = (<Size sizeChange={handleSizeChange} style={props.state}/>);
+    
     return (
         <div className="Css-Settings">
-            <Color colorChange={handleColorChange} style={props.state}/>
-            <BoxShadow boxshadowChange={handleBoxShadowChange} style={props.state}/>
-            <Size sizeChange={handleSizeChange} style={props.state}/>
+            {props.state.sliders.color ? color : null}
+            {props.state.sliders.boxshadow ? boxShadow : null} 
+            {props.state.sliders.size ? size : null}
         </div>
     )
 }

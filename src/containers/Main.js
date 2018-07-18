@@ -1,14 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { buttonChange } from '../actions'
 
-import Top_Bar from './Main/Top-Bar';
+import TopBar from './Main/TopBar';
 import Scene from './Main/Scene';
-import Bottom_Bar from './Main/Bottom-Bar';
+import BottomBar from './Main/BottomBar';
 
 const Main = props => {
+
+    let handleButtons = styleName => {
+        props.dispatch(buttonChange(styleName))
+    }
+
     return (
         <div className="Main">
+            <TopBar/>
             <Scene style={props.state}/>
+            <BottomBar buttons={handleButtons} style={props.state}/>
         </div>
     )
 }

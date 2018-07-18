@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Css_Settings from './Settings/Css-Settings';
+import CssSettings from './Settings/CssSettings';
 
 const Settings = props => {
     return (
         <div className="Settings">
-            <Css_Settings/>
+            <CssSettings/>
         </div>
     )
 }

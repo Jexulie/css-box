@@ -8,7 +8,7 @@ export default props => {
     let handleChange = e => {
         props.sizeChange({width: width.value, height: height.value})
     }
-
+    
     return (
         <div className="size">
             <div className="Width">
@@ -25,7 +25,7 @@ export default props => {
                 />
             </div>
             <div className="height">
-                <label>height</label>
+                <label>Height</label>
                 <input
                     className="slider"
                     id="height"

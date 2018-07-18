@@ -1,6 +1,14 @@
 const initialState = {
-    boxshadow: true,
-    border: false,
+    sliders: {
+        size: false,
+        boxshadow: false,
+        border: false,
+        color: false,
+        filter: false,
+        transform: false,
+        transition: false,
+        animation: false
+    },
     size: {
         width: 250,
         height: 250
@@ -27,6 +35,7 @@ const initialState = {
 
 export default (state=initialState, action) => {
     switch(action.type){
+        /* Slider Changes */
         case 'CHANGE_BACKGROUND_COLOR':
             return {
                 ...state,
@@ -62,6 +71,31 @@ export default (state=initialState, action) => {
                     height: action.values.height
                 }
             }
+        /* Buttons */
+        case 'TOGGLE_SIZE':
+            return {
+                ...state,
+                sliders: {
+                    ...state.sliders,
+                    size: !state.sliders.size
+                }
+            }
+        case 'TOGGLE_COLOR':
+            return {
+                ...state,
+                sliders: {
+                    ...state.sliders,
+                    color: !state.sliders.color
+                }
+            }
+        case 'TOGGLE_BOXSHADOW':
+        return {
+            ...state,
+            sliders: {
+                ...state.sliders,
+                boxshadow: !state.sliders.boxshadow
+            }
+        }
         default:
             return state
     }
