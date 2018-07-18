@@ -29,7 +29,7 @@ const Css_Settings = props => {
     let size = (<Size sizeChange={handleSizeChange} style={props.state}/>);
     
     return (
-        <div className="Css-Settings">
+        <div className="CssSettings">
             {props.state.sliders.color ? color : null}
             {props.state.sliders.boxshadow ? boxShadow : null} 
             {props.state.sliders.size ? size : null}

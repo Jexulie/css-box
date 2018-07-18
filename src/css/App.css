@@ -34,21 +34,90 @@ html{
 
 .BottomBar{
     order: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btn{
+    width: 120px;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    transition: all ease .5s;
+}
+
+
+.closed{
+    background: rgba(250, 72, 72, .5);
+    box-shadow: 0px 0px 10px rgba(250, 72, 72, .5);
+    color: rgba(255, 255, 255);
+    transition: all ease .5s;
+}
+
+.closed:hover{
+    background: rgba(250, 72, 72);
+    box-shadow: 0px 0px 20px rgba(250, 72, 72);
+    transition: all ease .5s;
+    color: rgba(255, 255, 255);
+}
+
+.opened{
+    background: rgba(100, 245, 100, .5);
+    box-shadow: 0px 0px 10px rgba(100, 245, 100, .5);
+    transition: all ease .5s;
+    color: rgba(255, 255, 255);
+}
+
+.opened:hover{
+    background: rgba(100, 245, 100);
+    box-shadow: 0px 0px 20px rgba(100, 245, 100);
+    transition: all ease .5s;
+    color: rgba(255, 255, 255);
 }
 
 .Settings{
     flex-basis: 40%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     background: linear-gradient(#e66465, #9198e5);
-    box-shadow: -12px, 0px, 10px, linear-gradient(#e66465, #9198e5);
     /* filter: blur(1px) */
 }
+
+.CssSettings{
+   margin-left: 75px;
+   margin-right: 75px; 
+}
+
+/* fix blur */
+/* .wrapper::before{
+    content: '';
+    position: absolute;
+    top: 0%; right: 0%; left: 0%; right: 0%;
+    filter: blur(20px);
+    background: rgba(255,0,0,.5);
+} */
+
+
+.wrapper{
+    position: relative;
+    background: hsla(0,0%,100%,.05);
+    box-shadow: 0px 3px 20px rgb(64, 64, 65);
+    padding: 15px;
+    border-radius: 5px;
+}
+
 
 .slider{
     -webkit-appearance: none;
     width: 100%;
-    height: 15px;
-    border-radius: 5px;
+    height: 10px;
+    border-radius: 50px;
     background-color: #ddd;
     outline: none;
     opacity: 0.7;
@@ -58,14 +127,45 @@ html{
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%; 
-    background: #f00;
+    width: 17px;
+    height: 17px;
+    border-radius: 20px; 
+    background: rgba(54, 52, 56,1);
     cursor: pointer;
+    transition: all ease .5s;
+}
+
+.slider:hover::-webkit-slider-thumb {
+    background: #64b2e6;
+    transition: all ease .5s;
 }
 
 .slider:hover{
     transition: all ease .5s;
     opacity: 1;
+}
+.slider-main{
+    display: flex;
+    flex-direction: column;
+}
+
+.slider-item{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.slider-header{
+    font-size: 1.3em;
+    color: rgba(54, 52, 56, 0.842);
+    align-self: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.label{
+    color: #ddd;
+    align-self: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
