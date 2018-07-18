@@ -2,13 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { changeBackgroundColor, changeBoxshadow, changeSize, changeClipPath } from '../../actions';
 
-import Animation from './Sliders/Animation';
+
 import BoxShadow from './Sliders/BoxShadow';
 import Color from './Sliders/Color';
 import Size from './Sliders/Size';
-import Transform from './Sliders/Transform';
 import ClipPath from './Sliders/ClipPath';
-import Filter from './Sliders/Filter';
 
 const Css_Settings = props => {
 
