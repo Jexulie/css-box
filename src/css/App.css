@@ -18,15 +18,30 @@ html{
     flex-basis: 60%;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.TopBar{
+    order: 1;
+}
+
+.Scene{
+    /* justify-content: center; */
+    align-self: center;
+    order: 2;
+}
+
+.BottomBar{
+    order: 3;
 }
 
 .Settings{
     flex-basis: 40%;
     height: 100vh;
     background: linear-gradient(#e66465, #9198e5);
-    box-shadow: -12px, 0px, 10px, linear-gradient(#e66465, #9198e5)
+    box-shadow: -12px, 0px, 10px, linear-gradient(#e66465, #9198e5);
+    /* filter: blur(1px) */
 }
 
 .slider{
