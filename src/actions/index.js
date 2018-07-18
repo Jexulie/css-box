@@ -11,7 +11,12 @@ export const changeBoxshadow = values => ({
 export const changeSize = values => ({
     type: 'CHANGE_SIZE',
     values
-})
+});
+
+export const changeClipPath = values => ({
+    type: 'CHANGE_CLIP_PATH',
+    values
+});
 
 export const buttonChange = stylename => {
     switch(stylename){
@@ -26,6 +31,10 @@ export const buttonChange = stylename => {
         case 'boxshadow':
             return {
                 type: 'TOGGLE_BOXSHADOW'
+            }
+        case 'clippath':
+            return {
+                type: 'TOGGLE_CLIPPATH'
             }
         default: 
             return null

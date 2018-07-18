@@ -1,5 +1,6 @@
 const initialState = {
     sliders: {
+        clippath: false,
         size: false,
         boxshadow: false,
         border: false,
@@ -8,6 +9,17 @@ const initialState = {
         transform: false,
         transition: false,
         animation: false
+    },
+    clipPath: {
+        type: 'polygon',
+        x1: 0,
+        y1: 100,
+        x2: 100,
+        y2: 100,
+        x3: 100,
+        y3: 0,
+        x4: 0,
+        y4: 0
     },
     size: {
         width: 250,
@@ -71,6 +83,21 @@ export default (state=initialState, action) => {
                     height: action.values.height
                 }
             }
+        case 'CHANGE_CLIP_PATH':
+            return {
+                ...state,
+                clipPath: {
+                    ...state.clipPath,
+                    x1: action.values.x1,
+                    y1: action.values.y1,
+                    x2: action.values.x2,
+                    y2: action.values.y2,
+                    x3: action.values.x3,
+                    y3: action.values.y3,
+                    x4: action.values.x4,
+                    y4: action.values.y4
+                }
+            }
         /* Buttons */
         case 'TOGGLE_SIZE':
             return {
@@ -89,11 +116,41 @@ export default (state=initialState, action) => {
                 }
             }
         case 'TOGGLE_BOXSHADOW':
-        return {
-            ...state,
-            sliders: {
-                ...state.sliders,
-                boxshadow: !state.sliders.boxshadow
+        if(state.sliders.clippath === true && state.sliders.boxshadow === false){
+            return {
+                ...state,
+                sliders: {
+                    ...state.sliders,
+                    boxshadow: true,
+                    clippath: false
+                }
+            }
+        }else{
+            return {
+                ...state,
+                sliders: {
+                    ...state.sliders,
+                    boxshadow: !state.sliders.boxshadow
+                }
+            }
+        }
+        case 'TOGGLE_CLIPPATH':
+        if(state.sliders.clippath === false && state.sliders.boxshadow === true){
+            return {
+                ...state,
+                sliders: {
+                    ...state.sliders,
+                    boxshadow: false,
+                    clippath: true
+                }
+            }
+        }else{
+            return {
+                ...state,
+                sliders: {
+                    ...state.sliders,
+                    clippath: !state.sliders.clippath
+                }
             }
         }
         default:
